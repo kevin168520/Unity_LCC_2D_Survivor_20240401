@@ -44,8 +44,25 @@ namespace Kevin
         {
             for (int i = 0; i < weaponCurrentLv.weaponPoint.Length; i++)
             {
-                // 角度 = 武器的X如果大於 0 就設定 0 角度，否則 180 角度
-                float angle = weaponCurrentLv.weaponPoint[i].x > 0 ? 0 : 180;
+                int rightWeapon = 0, leftWeapon = 180;
+               
+                
+                
+                int direction = transform.root.eulerAngles.y == 0 ? 1 : -1;
+
+                if (direction == 1)
+                {
+                    rightWeapon = 0;
+                    leftWeapon = 180;
+                }
+                else if (direction == -1)
+                {
+                    rightWeapon = 180;
+                    leftWeapon = 0;
+                    
+                }
+
+                float angle = weaponCurrentLv.weaponPoint[i].x > 0 ? rightWeapon : leftWeapon;
 
                 // 物件 生成(物件, 座標, 角度)
                 // 零度角 Quaternion 代表角度 0,0,0
@@ -54,7 +71,7 @@ namespace Kevin
                     dataWeapon.weaponPrefab, 
                     transform.position + 
                     transform.TransformDirection(weaponCurrentLv.weaponPoint[i]), 
-                    Quaternion.Euler(0,0,angle));
+                    Quaternion.Euler(0,0,angle * direction));
 
                 // 獲得生成暫存武器 剛體 往前產生推力
                 // transform.right 指的是此物件區域座標 X 紅色的軸向
