@@ -17,3 +17,8 @@ MonoBehaviour:
   attack: 20
   prefabExp: {fileID: 0}
   expProbability: 0.9
+  attackRange: 1.5
+  attackBefore: 0.3
+  attackAfter: 2
+  attackAreaSize: {x: 1.7, y: 1, z: 1}
+  attackAreaOffset: {x: 0.95, y: -0.35, z: 0}
