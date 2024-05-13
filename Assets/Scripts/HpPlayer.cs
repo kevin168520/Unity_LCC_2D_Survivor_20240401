@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Kevin
 {
@@ -9,6 +10,11 @@ namespace Kevin
     {
         [SerializeField, Header("玩家資料")]
         private DataPlayer dataPlayer;
+
+        /// <summary>
+        /// 死亡事件
+        /// </summary>
+        public event EventHandler onDead;
 
         private Animator ani;
         private string parDead = "觸發死亡";
@@ -23,6 +29,9 @@ namespace Kevin
         {
             base.Dead();
             ani.SetTrigger(parDead);
+
+            // 事件 如果不為空值 就呼叫 (發事件的此物件，空值)
+            onDead?.Invoke(this, null);
         }
     }
 

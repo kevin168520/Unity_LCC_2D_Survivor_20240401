@@ -19,6 +19,9 @@ namespace Kevin
         /// <param name="damage"></param>
         public void Damage(float damage)
         {
+            if (hp <= 0) return;
+
+
             // 暫存傷害值物件 = 生成....
             GameObject tempDamage = Instantiate(prefabDamageCanvas, transform.position,Quaternion.identity);
             // 暫存傷害值物件的變形的透過名稱尋找子物件("子物件名稱") 取得文字並更新

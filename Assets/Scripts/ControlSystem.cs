@@ -25,6 +25,8 @@ namespace Kevin
         private Vector3 checkGroundSize = Vector3.one;
         [SerializeField, Header("可跳躍圖層")]
         private LayerMask layerCanJump;
+        [SerializeField, Header("玩家血量系統")]
+        private HpPlayer hpPlayer;
 
         #endregion
 
@@ -42,8 +44,12 @@ namespace Kevin
 
         private void Awake()
         {
-            //print("給我動喔");
-            //print("<color=yellow>喚醒事件</color>");
+            hpPlayer.onDead += CloseControlSystem;
+        }
+
+        private void CloseControlSystem(object sender, System.EventArgs e)
+        {
+            enabled = false;
         }
 
         private void Start()

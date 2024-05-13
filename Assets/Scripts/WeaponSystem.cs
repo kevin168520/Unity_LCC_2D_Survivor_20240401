@@ -9,6 +9,8 @@ namespace Kevin
     {
         [SerializeField, Header("武器資料")]
         private DataWeapon dataWeapon;
+        [SerializeField, Header("玩家血量系統")]
+        private HpPlayer hpPlayer;
 
         /// <summary>
         /// 取得當前等級武器數值
@@ -35,6 +37,20 @@ namespace Kevin
             //SpawnWeapon(); //呼叫一次只會生成一個武器
             // 重複呼叫方法(方法名稱, 延後時間，重複頻率)
             InvokeRepeating("SpawnWeapon", 0, weaponCurrentLv.weaponInterva);
+
+            // 訂閱事件
+            hpPlayer.onDead += CloseWeaponSystem;
+        }
+
+        /// <summary>
+        /// 關閉武器系統
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CloseWeaponSystem(object sender, System.EventArgs e)
+        {
+            // 取消重複呼叫方法
+            CancelInvoke("SpawnWeapon");
         }
 
         /// <summary>
