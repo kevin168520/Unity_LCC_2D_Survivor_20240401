@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3132740050199926795
+--- !u!1 &2962301650518656035
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7812139979468471339}
-  - component: {fileID: 6743202835168603897}
-  - component: {fileID: 6389065072293679823}
-  - component: {fileID: 6403541674338834621}
-  - component: {fileID: 5395653770413225860}
-  m_Layer: 9
-  m_Name: "\u6B66\u5668_\u98DB\u5200"
+  - component: {fileID: 7893635543661610847}
+  - component: {fileID: 3323858005890754565}
+  - component: {fileID: 6868429635581642518}
+  - component: {fileID: 6534379307602655436}
+  m_Layer: 10
+  m_Name: "\u7D93\u9A57\u503C_2_\u5BF6\u7BB1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7812139979468471339
+--- !u!4 &7893635543661610847
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3132740050199926795}
+  m_GameObject: {fileID: 2962301650518656035}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -35,13 +34,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6743202835168603897
+--- !u!212 &3323858005890754565
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3132740050199926795}
+  m_GameObject: {fileID: 2962301650518656035}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,25 +75,25 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1620d1dfd9a74d24d8e670e7a7fb2f2f, type: 3}
+  m_Sprite: {fileID: -1065367922, guid: 457be89826801134f83fdf837e3d9fce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.39583334, y: 0.20833333}
+  m_Size: {x: 1.09375, y: 0.9375}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &6389065072293679823
+--- !u!50 &6868429635581642518
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3132740050199926795}
+  m_GameObject: {fileID: 2962301650518656035}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -114,13 +113,13 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &6403541674338834621
-CapsuleCollider2D:
+--- !u!61 &6534379307602655436
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3132740050199926795}
+  m_GameObject: {fileID: 2962301650518656035}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -147,18 +146,15 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.7916667, y: 0.41666666}
-  m_Direction: 0
---- !u!114 &5395653770413225860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3132740050199926795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d6a914de0359434ea285585ade7e1c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attack: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.09375, y: 0.9375}
+    newSize: {x: 1.09375, y: 0.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.09375, y: 0.9375}
+  m_EdgeRadius: 0

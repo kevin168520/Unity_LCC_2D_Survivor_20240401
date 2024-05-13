@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 namespace Kevin
 {
@@ -18,7 +19,10 @@ namespace Kevin
         /// <param name="damage"></param>
         protected void Damage(float damage)
         {
-            Instantiate(prefabDamageCanvas, transform.position,Quaternion.identity);
+            // 暫存傷害值物件 = 生成....
+            GameObject tempDamage = Instantiate(prefabDamageCanvas, transform.position,Quaternion.identity);
+            // 暫存傷害值物件的變形的透過名稱尋找子物件("子物件名稱") 取得文字並更新
+            tempDamage.transform.Find("文字傷害值").GetComponent<TMP_Text>().text = damage.ToString();
             hp -= damage;
             print($"<color=#f33>{gameObject.name}受傷，血量剩下:{hp}</color>");
 

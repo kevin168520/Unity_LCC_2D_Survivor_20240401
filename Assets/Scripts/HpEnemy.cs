@@ -34,7 +34,7 @@ namespace Kevin
             // 如果碰到的物件名稱有"武器"就受傷
             if (collision.gameObject.name.Contains(weaponName))
             {
-                Damage(30);
+                Damage(collision.gameObject.GetComponent<Weapon>().attack);
             }
 
         }
@@ -49,6 +49,21 @@ namespace Kevin
 
             // 刪除此物件
             Destroy(gameObject);
+
+            DropExpObject();
+        }
+
+        /// <summary>
+        /// 掉落經驗值物件
+        /// </summary>
+        private void DropExpObject()
+        {
+            // 如果 隨機值 < 掉落機率
+            if (Random.value < dataEnemy.expProbability)
+            {
+                // 生成 經驗值物件 在敵人身上
+                Instantiate(dataEnemy.prefabExp, transform.position, Quaternion.identity);
+            }
         }
     }
 

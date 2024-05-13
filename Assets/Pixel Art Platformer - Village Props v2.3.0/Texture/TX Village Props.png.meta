@@ -2693,7 +2693,7 @@ TextureImporter:
         width: 19
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2714,7 +2714,7 @@ TextureImporter:
         width: 7
         height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2735,7 +2735,7 @@ TextureImporter:
         width: 24
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2756,7 +2756,7 @@ TextureImporter:
         width: 17
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2832,10 +2832,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Village Props_133
+      name: Chest1
       rect:
         serializedVersion: 2
-        x: 30
+        x: 31
         y: 480
         width: 35
         height: 29
@@ -2853,7 +2853,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Village Props_134
+      name: Chest2
       rect:
         serializedVersion: 2
         x: 94
@@ -2874,7 +2874,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Village Props_142
+      name: Chest3
       rect:
         serializedVersion: 2
         x: 32
@@ -2895,10 +2895,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TX Village Props_143
+      name: Chest4
       rect:
         serializedVersion: 2
-        x: 94
+        x: 95
         y: 416
         width: 35
         height: 29
@@ -3766,6 +3766,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Chest1: 869511520
+      Chest2: -1065367922
+      Chest3: -657856912
+      Chest4: -2058235442
       TX Village Props_0: 327446056
       TX Village Props_1: 1411057720
       TX Village Props_10: -294017983
@@ -3805,8 +3809,6 @@ TextureImporter:
       TX Village Props_130: 252674045
       TX Village Props_131: -82161283
       TX Village Props_132: 912135129
-      TX Village Props_133: 869511520
-      TX Village Props_134: -1065367922
       TX Village Props_135: 1297655713
       TX Village Props_136: -1759608394
       TX Village Props_137: 1630892999
@@ -3815,8 +3817,6 @@ TextureImporter:
       TX Village Props_14: 1597123101
       TX Village Props_140: -1835718551
       TX Village Props_141: 1895138531
-      TX Village Props_142: -657856912
-      TX Village Props_143: -2058235442
       TX Village Props_144: 2126115974
       TX Village Props_145: -1010595996
       TX Village Props_146: -587407103

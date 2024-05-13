@@ -77,6 +77,9 @@ namespace Kevin
                 // transform.right 指的是此物件區域座標 X 紅色的軸向
                 // x 右(紅), Y上(綠), z 前(藍)
                 tempWeapon.GetComponent<Rigidbody2D>().AddForce(weaponCurrentLv.weaponSpeed * tempWeapon.transform.right);
+
+                // 暫存武器的武器攻擊力 = 當前武器等級的攻擊力
+                tempWeapon.GetComponent<Weapon>().attack = weaponCurrentLv.weaponAttack;
             }
             
         }
