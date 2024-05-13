@@ -17,7 +17,7 @@ namespace Kevin
         /// 受傷
         /// </summary>
         /// <param name="damage"></param>
-        protected void Damage(float damage)
+        public void Damage(float damage)
         {
             // 暫存傷害值物件 = 生成....
             GameObject tempDamage = Instantiate(prefabDamageCanvas, transform.position,Quaternion.identity);

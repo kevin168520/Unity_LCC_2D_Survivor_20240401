@@ -1277,6 +1277,7 @@ GameObject:
   - component: {fileID: 1013517609}
   - component: {fileID: 1013517610}
   - component: {fileID: 1013517611}
+  - component: {fileID: 1013517612}
   m_Layer: 7
   m_Name: "\u73A9\u5BB6_\u5DEB\u5E2B"
   m_TagString: Untagged
@@ -1457,6 +1458,20 @@ MonoBehaviour:
   layerCanJump:
     serializedVersion: 2
     m_Bits: 72
+--- !u!114 &1013517612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013517605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d43f76c22861a949af5720c02447c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDamageCanvas: {fileID: 5802206060714211480, guid: ab2136df68c260e4c8de4df2d7059996, type: 3}
+  dataPlayer: {fileID: 11400000, guid: bd73b48322e28284faf01467007a751f, type: 2}
 --- !u!1 &1251173022
 GameObject:
   m_ObjectHideFlags: 0

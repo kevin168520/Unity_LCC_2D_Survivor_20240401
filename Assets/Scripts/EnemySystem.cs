@@ -146,6 +146,9 @@ namespace Kevin
                 data.attackAreaSize, 0, playerLayer);
 
             print($"<color=#f69>攻擊到的物件:{hit?.name}</color>");
+
+            // 擊中物件 的 玩家血量 的受傷 (敵人資料的攻擊力)
+            hit?.GetComponent<HpPlayer>().Damage(data.attack);
         }
     }
 }

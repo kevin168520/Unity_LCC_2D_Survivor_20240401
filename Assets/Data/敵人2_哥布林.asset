@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: "\u6575\u4EBA2_\u54E5\u5E03\u6797"
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  hp: 100
+  hp: 500
   attack: 20
   prefabExp: {fileID: 4747138214878028851, guid: 4d10fb503421aab4caf87600876d208c, type: 3}
   expProbability: 0.9
   attackRange: 1.5
   attackBefore: 0.3
-  attackAfter: 2
+  attackAfter: 0.5
   attackAreaSize: {x: 1.7, y: 1, z: 1}
   attackAreaOffset: {x: 0.95, y: -0.35, z: 0}
