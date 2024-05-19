@@ -17,7 +17,7 @@ namespace Kevin
         /// 受傷
         /// </summary>
         /// <param name="damage"></param>
-        public void Damage(float damage)
+        public virtual void Damage(float damage)
         {
             if (hp <= 0) return;
 
