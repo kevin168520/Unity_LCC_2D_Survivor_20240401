@@ -86,6 +86,8 @@ namespace Kevin
 
             // 鋼體移動座標(要前往的座標)
             rig.MovePosition(movePosition);
+
+            ani.SetFloat(GameManager.parMove, 1);
         }
 
         /// <summary>
@@ -126,13 +128,14 @@ namespace Kevin
         {
             //正在攻擊中
             isAttacking = true;
-            print("<color=#f33>開始攻擊</color>");
+            //print("<color=#f33>開始攻擊</color>");
+            ani.SetFloat(GameManager.parMove, 0);
             ani.SetTrigger(GameManager.parAttack);
             yield return new WaitForSeconds(data.attackBefore);
-            print("<color=#f33>前搖結束</color>");
+            //print("<color=#f33>前搖結束</color>");
             AttackPlayer();
             yield return new WaitForSeconds(data.attackAfter);
-            print("<color=#f33>後搖結束</color>");
+            //print("<color=#f33>後搖結束</color>");
             // 恢復沒有在攻擊中
             isAttacking = false;
         }
