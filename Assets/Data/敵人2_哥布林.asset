@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u6575\u4EBA2_\u54E5\u5E03\u6797"
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  hp: 500
+  hp: 100
   attack: 100
   prefabExp: {fileID: 4747138214878028851, guid: 4d10fb503421aab4caf87600876d208c, type: 3}
   expProbability: 0.9

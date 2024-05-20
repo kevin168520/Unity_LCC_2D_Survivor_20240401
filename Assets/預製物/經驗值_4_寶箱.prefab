@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6271363105445219243}
   - component: {fileID: 748215767522036754}
   - component: {fileID: 3152225218931450413}
+  - component: {fileID: -8106453492941848441}
   m_Layer: 10
   m_Name: "\u7D93\u9A57\u503C_4_\u5BF6\u7BB1"
   m_TagString: Untagged
@@ -158,3 +159,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.09375, y: 0.90625}
   m_EdgeRadius: 0
+--- !u!114 &-8106453492941848441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144976987701263787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3d63efc6f08164bac5f96f07125ec4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flySpeed: 3.5
+  getExpDistance: 2
+  exp: 400
