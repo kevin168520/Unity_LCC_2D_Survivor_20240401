@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,10 @@ namespace Kevin
     public class ExpManager : MonoBehaviour
     {
         public static ExpManager instance;
-
+        /// <summary>
+        /// 升級事件
+        /// </summary>
+        public event EventHandler onUpgrade;
 
         [SerializeField, Header("圖片經驗值")]
         private Image imgExp;
@@ -37,6 +41,8 @@ namespace Kevin
         /// </summary>
         private int lvMax = 100;
 
+      
+
         /// <summary>
         /// 經驗值需求表格:所有等級經驗值需求
         /// </summary>
@@ -48,6 +54,13 @@ namespace Kevin
             // 實體資料 = 此物件
             instance = this;
             UpdateUI();
+        }
+
+        private void Update()
+        {
+#if UNITY_EDITOR
+            TestAddExp();
+#endif
         }
 
         [ContextMenu("產生經驗值需求表格")]
@@ -93,7 +106,20 @@ namespace Kevin
         {
             lv++;
             textLv.text = $"Lv{lv}";
+            onUpgrade?.Invoke(this, null);
+        }
+#if UNITY_EDITOR
+        // #if UNITY_EDITOR 如果在編輯器內，此程式區塊才有作用
+        /// <summary>
+        /// 測試 : 添加經驗值
+        /// </summary>
+        private void TestAddExp()
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                AddExp(100);
+            }
         }
     }
-
+#endif
 }
