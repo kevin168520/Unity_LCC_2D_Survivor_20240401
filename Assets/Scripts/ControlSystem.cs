@@ -7,14 +7,13 @@ namespace Kevin
         #region 基本資料區域
         // private 私人資料顯示在面板上需要加上 SerializeField 序列化欄位
         // Range 數字範圍
-        [SerializeField, Header("移動速度"), Range(0, 10)]
-        private float moveSpeed = 3.5f;
+        [SerializeField, Header("玩家資料")]
+        private DataPlayer dataPlayer;
         [SerializeField, Header("剛體元件")]
         private Rigidbody2D rig;
         [SerializeField, Header("動畫控制元件")]
         private Animator ani;
-        [SerializeField, Header("跳躍力道")]
-        private float JumpForce;
+       
 
         private string parMove = "移動數值";
         private string parJump = "觸發跳躍";
@@ -105,10 +104,10 @@ namespace Kevin
         private void Move(float h)
         {
             // 剛體 的 加速度 = 新 二維向量(移動速度， 原本剛體的 Y 軸加速度)
-            rig.velocity = new Vector2(moveSpeed * h, rig.velocity.y);
+            rig.velocity = new Vector2(dataPlayer.moveSpeed * h, rig.velocity.y);
 
             // 動畫控制元件 的 設定浮點數(參數名稱，浮點數)
-            ani.SetFloat(parMove, rig.velocity.magnitude / moveSpeed);
+            ani.SetFloat(parMove, rig.velocity.magnitude / dataPlayer.moveSpeed);
         }
 
         /// <summary>
@@ -135,7 +134,7 @@ namespace Kevin
             if (IsGround() && Input.GetKeyDown(KeyCode.Space))
             {
                 // 鋼體推力(向上推)
-                rig.AddForce(new Vector2(0, JumpForce));
+                rig.AddForce(new Vector2(0, dataPlayer.jump));
                 // 動畫的設定觸發參數(跳躍參數)
                 ani.SetTrigger(parJump);
             }

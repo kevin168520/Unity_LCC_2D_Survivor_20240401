@@ -32,10 +32,8 @@ namespace Kevin
         private string nameGroupLv = "圖片等級";
         private string nameImageLv = "圖片等級_";
 
-        #endregion
-
         /// <summary>
-        /// 洗牌後的技能資料
+        /// 技能圖片
         /// </summary>
         [SerializeField]
         private List<DataSkill> dataSkillShuffle;
@@ -44,9 +42,15 @@ namespace Kevin
         [SerializeField, Header("圖片等級 :　隱藏的顏色")]
         private Color colorSkillLvHide;
 
+        #endregion
+
+        private int btnPlayerClickIndex;
+
         private void Awake()
         {
             ExpManager.instance.onUpgrade += PlayerUpgrade;
+            ResetSkillLv();
+            ButtonClickEvent();
         }
 
         /// <summary>
@@ -63,17 +67,23 @@ namespace Kevin
             StartCoroutine(FadeGroupUpgrade());
         }
 
-        private IEnumerator FadeGroupUpgrade()
+        /// <summary>
+        /// 淡入淡出升級畫面
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator FadeGroupUpgrade(bool fadeIn = true)
         {
+            float increase = fadeIn ? +0.1f : -0.1f;
+
             for (int i = 0; i < 10; i++)
             {
-                groupUpgrade.alpha += 0.1f;
+                groupUpgrade.alpha += increase;
                 // WaitForSecondsRealTime 等待真實時間不被暫停
                 yield return new WaitForSecondsRealtime(0.07f);
             }
 
-            groupUpgrade.interactable = true;
-            groupUpgrade.blocksRaycasts = true;
+            groupUpgrade.interactable = fadeIn;
+            groupUpgrade.blocksRaycasts = fadeIn;
         }
 
         /// <summary>
@@ -120,6 +130,48 @@ namespace Kevin
             for (int i = 1; i <= lv; i++)
             {
                 btnSkills[btnIndex].transform.Find(nameGroupLv).Find(nameImageLv + i).GetComponent<Image>().color = colorSkillLvShow;
+            }
+        }
+
+        private void ButtonClickEvent()
+        {
+            for (int i = 0; i < btnSkills.Length; i++)
+            {
+                int index = i;
+
+                btnSkills[i].onClick.AddListener(() =>
+                {
+                    btnPlayerClickIndex = index;
+                    print($"<color=#96f>玩家點的按鈕編號 : {btnPlayerClickIndex}</color>");
+                    StartCoroutine(UpgradeSkillEffect());
+                });
+            }
+        }
+
+        /// <summary>
+        /// 升級技能效果
+        /// </summary>
+        /// <returns></returns>
+        private IEnumerator UpgradeSkillEffect()
+        {
+            groupUpgrade.interactable = false;
+            yield return new WaitForSecondsRealtime(0.5f);
+            DataSkill dataPlyerClick = dataSkillShuffle[btnPlayerClickIndex];
+            dataPlyerClick.skillLv++;
+            UpdateSkillLvSprite(btnPlayerClickIndex, dataPlyerClick.skillLv);
+            yield return new WaitForSecondsRealtime(1);
+            yield return StartCoroutine(FadeGroupUpgrade(false)); // 淡出升級畫面
+            Time.timeScale = 1;                                   // 時間尺吋恢復1
+        }
+
+        /// <summary>
+        /// 重設計能等級
+        /// </summary>
+        private void ResetSkillLv()
+        {
+            for (int i = 0; i < dataSkills.Length; i++)
+            {
+                dataSkills[i].skillLv = 1;
             }
         }
     }
