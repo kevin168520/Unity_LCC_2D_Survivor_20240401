@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u6B66\u56682_\u98DB\u5200"
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 3132740050199926795, guid: 2a891dfbf69e6904eafa0302b86d4c9f, type: 3}
-  weaponLv: 1
+  weaponLv: 2
   weponValues:
   - weaponPoint:
     - {x: 1.5, y: 0, z: 0}
@@ -23,9 +23,9 @@ MonoBehaviour:
   - weaponPoint:
     - {x: 1.5, y: 0, z: 0}
     - {x: -1.5, y: 0, z: 0}
-    weaponInterva: 0
-    weaponSpeed: 0
-    weaponAttack: 0
+    weaponInterva: 3
+    weaponSpeed: 500
+    weaponAttack: 100
   - weaponPoint:
     - {x: 1.5, y: 0, z: 0}
     - {x: -1.5, y: 0, z: 0}

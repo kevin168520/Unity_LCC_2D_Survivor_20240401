@@ -99,6 +99,15 @@ namespace Kevin
             }
             
         }
+
+        /// <summary>
+        /// 重新開始生成武器 : 為了重置生成間格
+        /// </summary>
+        public void RestartSpawnWeapon()
+        {
+            CancelInvoke("SpawnWeapon");
+            InvokeRepeating("SpawnWeapon", 0, weaponCurrentLv.weaponInterva);
+        }
     }
 
 }

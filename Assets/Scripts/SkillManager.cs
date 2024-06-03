@@ -43,16 +43,23 @@ namespace Kevin
         private Color colorSkillLvHide;
 
         #endregion
-
+        /// <summary>
+        /// 玩家點擊按鈕的編號
+        /// </summary>
         private int btnPlayerClickIndex;
+
+        [SerializeField, Header("升級系統1 ~ 7")]
+        private GameObject[] goUpgradeSystem;
 
         private void Awake()
         {
+            InitializePlayerData();
             ExpManager.instance.onUpgrade += PlayerUpgrade;
             ResetSkillLv();
             ButtonClickEvent();
         }
 
+        #region 方法
         /// <summary>
         /// 玩家升級
         /// </summary>
@@ -160,8 +167,19 @@ namespace Kevin
             dataPlyerClick.skillLv++;
             UpdateSkillLvSprite(btnPlayerClickIndex, dataPlyerClick.skillLv);
             yield return new WaitForSecondsRealtime(1);
+            UpgradeSkillObject(dataPlyerClick);
             yield return StartCoroutine(FadeGroupUpgrade(false)); // 淡出升級畫面
             Time.timeScale = 1;                                   // 時間尺吋恢復1
+        }
+
+        /// <summary>
+        /// 升級技能物件
+        /// </summary>
+        private void UpgradeSkillObject(DataSkill dataPlayerClick)
+        {
+            int skillIndex = dataSkills.ToList().IndexOf(dataPlayerClick);
+            print($"<color=#36f>玩家點的技能資料編號 : {skillIndex}</color>");
+            goUpgradeSystem[skillIndex].GetComponent<IUpgrade>().Upgrade(dataPlayerClick.skillIncerease);
         }
 
         /// <summary>
@@ -174,6 +192,16 @@ namespace Kevin
                 dataSkills[i].skillLv = 1;
             }
         }
+
+        private void InitializePlayerData()
+        {
+            goUpgradeSystem[0].GetComponent<UpgradePlayer>().InitializePlayerData(dataSkills[0].skillInitilizeValue);
+            goUpgradeSystem[1].GetComponent<UpgradePlayer>().InitializePlayerData(dataSkills[1].skillInitilizeValue);
+            goUpgradeSystem[2].GetComponent<UpgradePlayer>().InitializePlayerData(dataSkills[2].skillInitilizeValue);
+            goUpgradeSystem[3].GetComponent<UpgradePlayer>().InitializePlayerData(dataSkills[3].skillInitilizeValue);
+            goUpgradeSystem[6].GetComponent<UpgradePlayer>().InitializePlayerData(dataSkills[6].skillInitilizeValue);
+        } 
+        #endregion
     }
 }
 

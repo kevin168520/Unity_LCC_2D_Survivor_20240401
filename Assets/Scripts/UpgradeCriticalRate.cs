@@ -8,6 +8,17 @@ namespace Kevin
     public class UpgradeCriticalRate : UpgradePlayer
     {
 
+        public override void InitializePlayerData(float value)
+        {
+            base.InitializePlayerData(value);
+            dataPlayer.criticalRate = value;
+        }
+
+        public override void Upgrade(float increase)
+        {
+            base.Upgrade(increase);
+            dataPlayer.criticalRate += increase;
+        }
     }
 }
 
