@@ -14,7 +14,7 @@ namespace Kevin
 
         private string weaponName = "武器";
 
-        private void Awake()
+        protected virtual void Awake()
         {
             hp = dataEnemy.hp;
         }

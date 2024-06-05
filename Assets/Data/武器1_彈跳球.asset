@@ -20,3 +20,56 @@ MonoBehaviour:
     weaponInterva: 3
     weaponSpeed: 400
     weaponAttack: 30
+  - weaponPoint:
+    - {x: 0.5, y: 1, z: 0}
+    weaponInterva: 3
+    weaponSpeed: 400
+    weaponAttack: 30
+  - weaponPoint:
+    - {x: 0.5, y: 1, z: 0}
+    - {x: -0.5, y: 1, z: 0}
+    weaponInterva: 3
+    weaponSpeed: 400
+    weaponAttack: 100
+  - weaponPoint:
+    - {x: 0.5, y: 1, z: 0}
+    - {x: -0.5, y: 1, z: 0}
+    weaponInterva: 3
+    weaponSpeed: 400
+    weaponAttack: 100
+  - weaponPoint:
+    - {x: 0.5, y: 1, z: 0}
+    - {x: -0.5, y: 1, z: 0}
+    weaponInterva: 3
+    weaponSpeed: 400
+    weaponAttack: 100
+  - weaponPoint:
+    - {x: 0.5, y: 1, z: 0}
+    - {x: -0.5, y: 1, z: 0}
+    weaponInterva: 3
+    weaponSpeed: 400
+    weaponAttack: 100
+  - weaponPoint:
+    - {x: 0.5, y: 1, z: 0}
+    - {x: -0.5, y: 1, z: 0}
+    weaponInterva: 3
+    weaponSpeed: 400
+    weaponAttack: 100
+  - weaponPoint:
+    - {x: 0.5, y: 1, z: 0}
+    - {x: -0.5, y: 1, z: 0}
+    weaponInterva: 3
+    weaponSpeed: 400
+    weaponAttack: 100
+  - weaponPoint:
+    - {x: 0.5, y: 1, z: 0}
+    - {x: -0.5, y: 1, z: 0}
+    weaponInterva: 3
+    weaponSpeed: 400
+    weaponAttack: 100
+  - weaponPoint:
+    - {x: 0.5, y: 1, z: 0}
+    - {x: -0.5, y: 1, z: 0}
+    weaponInterva: 3
+    weaponSpeed: 400
+    weaponAttack: 100

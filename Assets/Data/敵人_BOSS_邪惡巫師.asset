@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 917ce3be72e0ba04ba7f9fd5d3edf905, type: 3}
-  m_Name: "\u6575\u4EBA2_\u54E5\u5E03\u6797"
+  m_Name: "\u6575\u4EBA_BOSS_\u90AA\u60E1\u5DEB\u5E2B"
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  hp: 250
-  attack: 100
-  prefabExp: {fileID: 4747138214878028851, guid: 4d10fb503421aab4caf87600876d208c, type: 3}
-  expProbability: 0.9
-  attackRange: 1.5
-  attackBefore: 0.3
-  attackAfter: 0.5
-  attackAreaSize: {x: 1.7, y: 1, z: 1}
-  attackAreaOffset: {x: 0.95, y: -0.35, z: 0}
+  moveSpeed: 3
+  hp: 500
+  attack: 200
+  prefabExp: {fileID: 2144976987701263787, guid: 93db06a9692cc374db1126f35dc0ac9c, type: 3}
+  expProbability: 1
+  attackRange: 4.19
+  attackBefore: 1
+  attackAfter: 2
+  attackAreaSize: {x: 1, y: 1, z: 1}
+  attackAreaOffset: {x: 0, y: 0, z: 0}
