@@ -20,11 +20,11 @@ namespace Kevin
         /// <summary>
         /// 是否在攻擊中
         /// </summary>
-        private bool isAttacking;
+        protected bool isAttacking;
         #endregion
 
         #region 事件區域
-        private void OnDrawGizmos()
+        protected virtual void OnDrawGizmos()
         {
             Gizmos.color = new Color(0.8f, 0.6f, 0.5f, 0.3f);
             Gizmos.DrawSphere(transform.position, data.attackRange);
@@ -36,6 +36,8 @@ namespace Kevin
                 data.attackAreaSize);
         }
 
+        protected IEnumerator attackMode;
+
         protected virtual void Awake()
         {
             rig = GetComponent<Rigidbody2D>();
@@ -44,6 +46,8 @@ namespace Kevin
             // 透過名稱尋找遊戲物件 GameObject.Find(物件名稱)
             // 玩家變形 = 尋找場景上名稱為"玩家_巫師"的物件 的 變形元件
             playerPosition = GameObject.Find(GameManager.playerName).transform;
+
+            attackMode = StartAttack();
         }
 
 
@@ -59,8 +63,10 @@ namespace Kevin
         private void FixedUpdate()
         {
             Move();
-        } 
+        }
         #endregion
+
+       
 
         #region 方法區域
         /// <summary>
@@ -114,17 +120,17 @@ namespace Kevin
         /// <summary>
         /// 攻擊
         /// </summary>
-        private void Attack()
+        protected virtual void Attack()
         {
             // 如果距離大於等於攻擊範圍就跳出
             if (CheckDistance() >= data.attackRange) return;
             // 如果正在攻擊中就跳出
             if(isAttacking) return;
 
-            StartCoroutine(StartAttack());
+            StartCoroutine(attackMode);
         } 
 
-        private IEnumerator StartAttack()
+        protected IEnumerator StartAttack()
         {
             //正在攻擊中
             isAttacking = true;

@@ -5496,7 +5496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 3
+  m_AmplitudeGain: 0
   m_FrequencyGain: 1
   mNoiseOffsets: {x: 888.4556, y: -154.52444, z: 892.9774}
 --- !u!1 &963998819
@@ -6000,7 +6000,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1024599394
 Canvas:
   m_ObjectHideFlags: 0
@@ -8831,6 +8831,15 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+  prefabLightBall: {fileID: 7146262042422328295, guid: 0c9992e8c6048224fae4bc13194ec38a, type: 3}
+  pointLightBall:
+  - {x: -3, y: 7, z: 0}
+  - {x: 0, y: 6.5, z: 0}
+  - {x: 3, y: 6.8, z: 0}
+  intervalLightBall: 0.2
+  secondAttackTime: 3
+  attackLightBall: 3
+  secondAttackProbability: 0.7
 --- !u!114 &1567014209
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,6 +36,13 @@ namespace Kevin
             imgHp = GameObject.Find("圖片血條").GetComponent<Image>();
         }
 
+        private void OnParticleCollision(GameObject other)
+        {
+           
+             if (other.TryGetComponent(out Weapon weapon))
+                 Damage(weapon.attack);
+        }
+
         public override void Damage(float damage)
         {
             base.Damage(damage);
