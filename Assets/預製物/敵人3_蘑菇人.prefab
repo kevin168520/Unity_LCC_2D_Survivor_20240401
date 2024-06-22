@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 6068946748435243505}
   - component: {fileID: 3371843321873724609}
   - component: {fileID: 8358106461817332524}
-  m_Layer: 0
+  - component: {fileID: -107659381215644870}
+  - component: {fileID: -3597564782104304418}
+  m_Layer: 8
   m_Name: "\u6575\u4EBA3_\u8611\u83C7\u4EBA"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,3 +172,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-107659381215644870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7767880539625865271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c205ad36f342154eb6b8e3bad84eca4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 1a04b119079bd8d40b994f2d7354e0ee, type: 2}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &-3597564782104304418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7767880539625865271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 713dc432ceca3c44fa6cfe6435bb13ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDamageCanvas: {fileID: 5802206060714211480, guid: ab2136df68c260e4c8de4df2d7059996, type: 3}
+  dataEnemy: {fileID: 11400000, guid: 1a04b119079bd8d40b994f2d7354e0ee, type: 2}
+  prefabExplosion: {fileID: 6167869289584914409, guid: 9b97f2a16cd9d9848ac0685c02a95f63, type: 3}

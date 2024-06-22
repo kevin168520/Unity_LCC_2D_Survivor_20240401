@@ -78,22 +78,25 @@ namespace Kevin
             if (CheckDistance() < data.attackRange) return;
             // 如果 攻擊中 就 跳出
             if (isAttacking) return;
+            rig.velocity = transform.right * data.moveSpeed + transform.up * rig.velocity.y;
 
-            // 目前座標 = 敵人鋼體的座標
+            ani.SetFloat(GameManager.parMove, 1);
+        }
+
+        private void MovePosition()
+        {
+            // 目前座標 = 敵人剛體的座標
             Vector2 currentPoint = rig.position;
             // 玩家座標 = 玩家座標
             Vector2 playerPoint = playerPosition.position;
-            // 玩家座標的Y = 目前座標的Y
+            // 玩家座標的 y = 目前座標的 y
             playerPoint.y = currentPoint.y;
             // 方向 = 玩家座標 - 目前座標
             Vector2 direction = playerPoint - currentPoint;
-            // 要前往的座標 = 目前座標 + 方向 * 移動速度 * 每固定偵的時間
+            // 要前往的座標 = 目前座標 + 方向 * 移動速度 * 每固定禎的時間(0.02)
             Vector2 movePosition = currentPoint + direction * data.moveSpeed * Time.fixedDeltaTime;
-
-            // 鋼體移動座標(要前往的座標)
+            // 剛體 的 移動座標(要前往的座標)
             rig.MovePosition(movePosition);
-
-            ani.SetFloat(GameManager.parMove, 1);
         }
 
         /// <summary>
@@ -144,6 +147,8 @@ namespace Kevin
             //print("<color=#f33>後搖結束</color>");
             // 恢復沒有在攻擊中
             isAttacking = false;
+
+            attackMode = StartAttack();
         }
         #endregion
 
