@@ -12,6 +12,7 @@ namespace Kevin
     {
         public static HpBoss instance;
         public event EventHandler onSecondState;
+        public event EventHandler onDead;
 
 
         [SerializeField, Header("血量剩餘多少進入二階段"), Range(0, 1)]
@@ -50,6 +51,13 @@ namespace Kevin
                 onSecondState?.Invoke(this, null);
                 print("<color=#df3>進入二階段</color>");
             }
+        }
+
+        protected override void Dead()
+        {
+            base.Dead();
+            onDead.Invoke(this, null);
+            GameManager.instance.ShowWinCanvas();
         }
     }
 

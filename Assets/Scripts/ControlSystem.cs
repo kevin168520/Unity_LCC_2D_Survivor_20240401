@@ -18,6 +18,9 @@ namespace Kevin
         private string parMove = "移動數值";
         private string parJump = "觸發跳躍";
 
+        public bool canMove { get; set; } = false;
+        public bool canJump { get; set; } = false;
+
         [SerializeField, Header("檢查地板位移")]
         private Vector3 checkGroundOffset;
         [SerializeField, Header("檢查地板尺寸")]
@@ -103,6 +106,8 @@ namespace Kevin
         /// <param name="h">玩家水平按鍵值</param>
         private void Move(float h)
         {
+            if(!canMove) return;
+
             // 剛體 的 加速度 = 新 二維向量(移動速度， 原本剛體的 Y 軸加速度)
             rig.velocity = new Vector2(dataPlayer.moveSpeed * h, rig.velocity.y);
 
@@ -125,6 +130,8 @@ namespace Kevin
 
         private void Jump()
         {
+            if( !canJump ) return;
+
             // 如果 在地板上 並且 按下空白鍵 就 跳躍
             // && 並且 Shift + 鍵盤左邊的 7
             // Input.GetKeyDown() 玩家是否按下按鍵

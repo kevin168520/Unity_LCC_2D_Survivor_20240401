@@ -1,6 +1,9 @@
 ﻿using System;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 
 namespace Kevin
@@ -10,6 +13,8 @@ namespace Kevin
     /// </summary>
     public class GameManager : MonoBehaviour
     {
+        public static GameManager instance;
+
         #region 常數資料
         // const 常數 : 不變的資料
         public const string playerName = "玩家_巫師";
@@ -27,13 +32,38 @@ namespace Kevin
         [SerializeField, Header("玩家血量系統")]
         private HpPlayer hpPlayer;
         [SerializeField, Header("畫布結束畫面")]
-        private CanvasGroup groupFinal; 
+        private CanvasGroup groupFinal;
+
+        private Button btnReplay, btnQuit;
+        private TMP_Text textFinalTitle;
         #endregion
 
         private void Awake()
         {
-            hpPlayer.onDead += ShowFinalCanvas; 
+            instance = this;
+
+            textFinalTitle = GameObject.Find("文字結束標題").GetComponent<TMP_Text>();
+            btnReplay = GameObject.Find("按鈕重新遊戲").GetComponent<Button>();
+            btnQuit = GameObject.Find("按鈕結束遊戲").GetComponent <Button>();
+            btnReplay.onClick.AddListener(Replay);
+            btnQuit.onClick.AddListener(Quit);
+
+            hpPlayer.onDead += ShowLoseCanvas; 
+           // HpBoss.instance.onDead += ShowWinCanvas;
         }
+
+        /// <summary>
+        /// 顯示勝利畫面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public void ShowWinCanvas()
+        {
+            textFinalTitle.text = "恭喜你活下來^^";
+            StartCoroutine(FadeCanvas());
+        }
+
 
         /// <summary>
         /// 顯示結束畫面
@@ -41,8 +71,9 @@ namespace Kevin
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// <exception cref="NotImplementedException"></exception>
-        private void ShowFinalCanvas(object sender, EventArgs e)
+        private void ShowLoseCanvas(object sender, EventArgs e)
         {
+            textFinalTitle.text = "挑戰失敗";
             StartCoroutine(FadeCanvas());
         }
 
@@ -58,6 +89,17 @@ namespace Kevin
             // 畫布群組勾選互動 與 射線遮擋
             groupFinal.interactable = true;
             groupFinal.blocksRaycasts = true;
+        }
+
+        private void Replay()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        private void Quit()
+        {
+            // 應用程式.離開 - 僅在執行檔有作用 (Exe 或 APK)
+            Application.Quit();
         }
     }
 }
