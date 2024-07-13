@@ -62,6 +62,7 @@ namespace Kevin
         {
             textFinalTitle.text = "恭喜你活下來^^";
             StartCoroutine(FadeCanvas());
+            SoundManager.instance.PlaySound(SoundType.Win);
         }
 
 
@@ -75,6 +76,7 @@ namespace Kevin
         {
             textFinalTitle.text = "挑戰失敗";
             StartCoroutine(FadeCanvas());
+            SoundManager.instance.PlaySound(SoundType.Lose, 1.2f, 1.3f);
         }
 
         private IEnumerator FadeCanvas()

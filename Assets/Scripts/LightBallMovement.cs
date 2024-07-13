@@ -22,7 +22,7 @@ namespace Kevin
                 0.1f);
         }
 
-        private void Awake()
+        private void Start()
         {
             transform.DOMove(
                 transform.position + 

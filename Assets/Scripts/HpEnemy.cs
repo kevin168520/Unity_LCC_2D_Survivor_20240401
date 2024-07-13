@@ -41,6 +41,12 @@ namespace Kevin
 
         }
 
+        public override void Damage(float damage)
+        {
+            base.Damage(damage);
+            SoundManager.instance.PlaySound(SoundType.EnemyHit, 0.8f, 1.4f);
+        }
+
         // 使用關鍵字 override 可以覆寫父類別有 virtual 的成員
         protected override void Dead()
         {
@@ -55,6 +61,7 @@ namespace Kevin
             Destroy(tempExplosion, 1.5f);
 
             DropExpObject();
+            SoundManager.instance.PlaySound(SoundType.EnemyDead, 0.8f, 1.4f);
         }
 
         /// <summary>

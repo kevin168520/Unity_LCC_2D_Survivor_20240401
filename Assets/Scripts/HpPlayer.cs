@@ -47,6 +47,7 @@ namespace Kevin
         {
             base.Damage(damage);
             imgHp.fillAmount = hp / hpMax;
+            SoundManager.instance.PlaySound(SoundType.PlayerHit, 0.6f, 1.3f);
         }
 
         protected override void Dead()
@@ -56,6 +57,7 @@ namespace Kevin
 
             // 事件 如果不為空值 就呼叫 (發事件的此物件，空值)
             onDead?.Invoke(this, null);
+            SoundManager.instance.PlaySound(SoundType.PlayerDead, 0.6f, 1.3f);
         }
 
         /// <summary>

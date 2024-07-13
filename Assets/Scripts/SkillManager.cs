@@ -50,6 +50,8 @@ namespace Kevin
 
         [SerializeField, Header("升級系統1 ~ 7")]
         private GameObject[] goUpgradeSystem;
+        [SerializeField, Header("按鈕技能全滿提示")]
+        private Button btnAllSkillFull;
 
         private void Awake()
         {
@@ -57,6 +59,11 @@ namespace Kevin
             ExpManager.instance.onUpgrade += PlayerUpgrade;
             ResetSkillLv();
             ButtonClickEvent();
+            btnAllSkillFull.onClick.AddListener(() =>
+            {
+                StartCoroutine(FadeGroupUpgrade(false));
+                Time.timeScale = 1;
+            });
         }
 
         #region 方法
@@ -112,6 +119,12 @@ namespace Kevin
         {
             for (int i = 0; i < btnSkills.Length; i++)
             {
+                if (i >= dataSkillShuffle.Count)
+                {
+                    btnSkills[i].gameObject.SetActive(false);
+                    continue;
+                }
+
                 DataSkill data = dataSkillShuffle[i];
                 btnSkills[i].transform.Find(nameTextSkill).GetComponent<TMP_Text>().text = data.skillName;
                 btnSkills[i].transform.Find(nameImageSkill).GetComponent<Image>().sprite = data.skillSprite;
@@ -195,6 +208,7 @@ namespace Kevin
 
         private void InitializePlayerData()
         {
+
             goUpgradeSystem[0].GetComponent<UpgradePlayer>().InitializePlayerData(dataSkills[0].skillInitilizeValue);
             goUpgradeSystem[1].GetComponent<UpgradePlayer>().InitializePlayerData(dataSkills[1].skillInitilizeValue);
             goUpgradeSystem[2].GetComponent<UpgradePlayer>().InitializePlayerData(dataSkills[2].skillInitilizeValue);

@@ -17,7 +17,7 @@ MonoBehaviour:
   weponValues:
   - weaponPoint:
     - {x: 1.5, y: 0, z: 0}
-    weaponInterva: 3
+    weaponInterva: 2.7
     weaponSpeed: 500
     weaponAttack: 100
   - weaponPoint:
